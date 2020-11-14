@@ -41,4 +41,4 @@ arm_rpi_boardtemp=$(echo $thepimon_output | awk -F'Temp:' '{print $2}'  | awk '{
 arm_rpi_hostname=$(echo $HOSTNAME)
 
 echo "Writing vsphere_esxi_arm to InfluxDB"
-ssh $jumBoxUser@$jumpBoxIP "curl -i -XPOST '$InfluxDBURL:$InfluxDBPort/write?precision=s&db=$InfluxDB' -u '$InfluxDBUser:$InfluxDBPassword' --data-binary 'vsphere_esxi_arm,arm_rpi_hostname=$arm_rpi_hostname,arm_rpi_firmware=$arm_rpi_firmware,arm_rpi_boardmodel=$arm_rpi_boardmodel,arm_rpi_boardrevision=$arm_rpi_boardrevision,arm_rpi_boardserial=$arm_rpi_boardserial arm_rpi_boardtemp=$arm_rpi_boardtemp'"
+ssh $jumBoxUser@$jumpBoxIP "curl -i -XPOST '$InfluxDBURL:$InfluxDBPort/write?precision=s&db=$InfluxDB' -u '$InfluxDBUser:$InfluxDBPassword' --data-binary 'vsphere_esxi_arm,arm_rpi_hostname=$arm_rpi_hostname,arm_rpi_firmware=$arm_rpi_firmware,arm_rpi_boardmodel=$arm_rpi_boardmodel,arm_rpi_boardrevision=$arm_rpi_boardrevision,arm_rpi_boardserial=$arm_rpi_boardserial arm_rpi_boardtemp=$arm_rpi_boardtemp' -k --silent"
