@@ -24,7 +24,7 @@ thepimonPath="/thpimon-main/pyUtil/pimon_util.py"
 ##
 # Variables from Python thepimon to InfluxDB
 ##
-thepimon_output=$(python /thpimon-main/pyUtil/pimon_util.py)
+thepimon_output=$(python $thepimonPath)
 arm_rpi_firmware=$(echo $thepimon_output | awk -F':' '{print $2}' | awk '{print $1}')
 arm_rpi_boardmodel=$(echo $thepimon_output | awk -F'Model:' '{print $2}' | awk '{print $1}')
 arm_rpi_boardrevision=$(echo $thepimon_output | awk -F'Board Revision:' '{print $2}' | awk '{print $1}')
